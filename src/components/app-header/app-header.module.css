@@ -1,0 +1,36 @@
+.header {
+  max-width: 1920px;
+  min-height: 88px;
+  background-color: #1c1c21;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  max-width: 1280px;
+  min-height: 56px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.navigation {
+  display: flex;
+  flex-direction: row;
+
+  margin: 16px 20px;
+  margin: 16px 132px 16px 0;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  margin: 16px 20px;
+}
+
+.wrapperProfile {
+  display: flex;
+  flex-direction: row;
+  margin: 16px 20px;
+  margin: 0 0 0 300px;
+}
