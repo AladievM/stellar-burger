@@ -9,26 +9,15 @@ import {
   DragIcon,
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import OrderDetails from '../order-details/order-details';
-
+import Modal from '../modal/modal';
+import { useModal } from '../utils/useModal';
 
 function BurgerConstructor({ data }) {
   const list = data.filter((item) => item.type !== 'bun');
   const bun = data.find((item) => item.type === 'bun');
   const sum = bun.price * 2 + list.reduce((sum, item) => (sum += item.price), 0);
 
-  const [open, setOpen] = React.useState(false);
-
-  function closeOrder(e) {
-    setOpen(false);
-    e.stopPropagation();
-  }
-
-  function openOrder() {
-    setOpen(true);
-  }
-
-
-
+  const { isModalOpen, openModal, closeModal } = useModal();
 
   return (
     <section className={styles.section}>
@@ -71,10 +60,14 @@ function BurgerConstructor({ data }) {
         <div className={`${styles['total-icon']} mr-10`}>
           <CurrencyIcon type="primary" />
         </div>
-        <Button htmlType="button" type="primary" onClick={openOrder}>
+        <Button htmlType="button" type="primary" onClick={openModal}>
           Оформить заказ
         </Button>
-        {open && <OrderDetails number='1234567' onClose={closeOrder}/> }
+        {isModalOpen && (
+          <Modal onClose={closeModal}>
+            <OrderDetails number="1234567" />
+          </Modal>
+        )}
       </div>
     </section>
   );

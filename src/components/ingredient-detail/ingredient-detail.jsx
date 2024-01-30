@@ -1,12 +1,10 @@
 import React from 'react';
 import { dataPropTypes } from '../utils/prop-types';
-import PropTypes from 'prop-types';
-import Modal from '../modal/modal';
 import styles from './ingredient-detail.module.css';
 
-function IngredientDetail({ item, onClose }) {
+function IngredientDetail({ item }) {
   return (
-    <Modal heading={'Детали ингредиента'} onClose={onClose}>
+    <>
       <img src={item.image_large} alt="Изображение ингредиента" />
       <p className="text text_type_main-medium mt-4 mb-8"> {item.name}</p>
       <ul className={`${styles.list} `}>
@@ -29,13 +27,12 @@ function IngredientDetail({ item, onClose }) {
           </p>
         </li>
       </ul>
-    </Modal>
+    </>
   );
 }
 
 IngredientDetail.propTypes = {
   item: dataPropTypes.isRequired,
-  onClose: PropTypes.func.isRequired,
 };
 
 export default IngredientDetail;

@@ -23,10 +23,10 @@ function Modal({ children, onClose, heading }) {
     };
   }, [escFunction]);
 
-  return ReactDOM.createPortal ((
+  return ReactDOM.createPortal(
     <ModalOverlay onClose={onClose}>
       <div className={`${styles.container} `}>
-        <div className="pr-15 mr-15" >
+        <div className="pr-15 mr-15">
           <p className="text text_type_main-large pr-15 mt-8 mr-15 ">{heading}</p>
         </div>
         <span className={`${styles.closeIcon}  mt-10 mr-10  `}>
@@ -34,14 +34,14 @@ function Modal({ children, onClose, heading }) {
         </span>
         {children}
       </div>
-    </ModalOverlay>
-  ),document.getElementById('modal'));
-  
+    </ModalOverlay>,
+    document.getElementById('modal'),
+  );
 }
 
 Modal.propTypes = {
   heading: PropTypes.string,
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.element.isRequired,
   onClose: PropTypes.func.isRequired,
 };
 

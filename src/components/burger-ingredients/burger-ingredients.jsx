@@ -6,9 +6,9 @@ import BurgerIngredientsItem from '../burger-ingredient-item/burger-ingredient-i
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 
 function BurgerIngredients({ data }) {
-  const BunsItems = data.filter((item) => item.type === 'bun');
-  const SauceItems = data.filter((item) => item.type === 'sauce');
-  const MainItems = data.filter((item) => item.type === 'main');
+  const bunsItems = data.filter((item) => item.type === 'bun');
+  const sauceItems = data.filter((item) => item.type === 'sauce');
+  const mainItems = data.filter((item) => item.type === 'main');
 
   const [current, setCurrent] = React.useState('bun');
 
@@ -31,16 +31,16 @@ function BurgerIngredients({ data }) {
         <div>
           <h2 className="text text_type_main-medium mt-2">Булки</h2>
           <ul className={styles.group}>
-            {BunsItems.map((item, index) => (
-              <BurgerIngredientsItem item={item} key={index} />
+            {bunsItems.map((item ) => (
+              <BurgerIngredientsItem item={item} key={item._id} />
             ))}
           </ul>
         </div>
         <div>
           <h2 className="text text_type_main-medium mt-2">Соусы</h2>
           <ul className={styles.group}>
-            {SauceItems.map((item, index) => (
-              <BurgerIngredientsItem item={item} key={index} />
+            {sauceItems.map((item ) => (
+              <BurgerIngredientsItem item={item} key={item._id} />
             ))}
           </ul>
         </div>
@@ -48,8 +48,8 @@ function BurgerIngredients({ data }) {
         <div>
           <h2 className="text text_type_main-medium mt-2">Начинки</h2>
           <ul className={styles.group}>
-            {MainItems.map((item, index) => (
-              <BurgerIngredientsItem item={item} key={index} />
+            {mainItems.map((item) => (
+              <BurgerIngredientsItem item={item} key={item._id} />
             ))}
           </ul>
         </div>
