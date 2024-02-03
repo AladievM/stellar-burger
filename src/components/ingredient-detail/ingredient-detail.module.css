@@ -1,0 +1,16 @@
+.list {
+    display: flex;
+  flex: 1 1 25%;
+  list-style: none;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.detail{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 25%;
+  white-space: nowrap;
+}
